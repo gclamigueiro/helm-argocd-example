@@ -3,15 +3,15 @@ kind: Deployment
 metadata:
   labels:
     app: nginx
-    tag: {{ .Values.image.tag }}
-  name: nginx-{{ .Values.image.tag }}
-  namespace: {{ .Values.namespace.name }}
+    tag: alpine
+  name: nginx-alpine
+  namespace: {{ .Values.namespace.name }} 
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicaCount }} 
   selector:
     matchLabels:
       app: nginx
-      tag: {{ .Values.image.tag }}
+      tag: alpine
   strategy:
     rollingUpdate:
       maxSurge: 25%
